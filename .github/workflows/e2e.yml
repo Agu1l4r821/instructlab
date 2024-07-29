@@ -182,3 +182,107 @@ jobs:
           gh pr comment "${{ github.event.inputs.pr_or_branch }}" -b "e2e workflow succeeded on this PR: [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), congrats!"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - nombre: Primera interacción
+  usos: acciones/primera-interacción@v1.3.0
+  con:
+    # Token para el repositorio. Se puede pasar mediante {{ secrets.GITHUB_TOKEN }}
+    token de recompra:
+    # Comentario para publicar sobre el primer problema de un individuo
+    mensaje de problema: # opcional
+    # Comentario para publicar en la primera solicitud de extracción de un individuo
+    pr-message: # opcional
+                - nombre: Configurar Java JDK
+  usos: acciones/setup-java@v4.2.1
+  con:
+    # La versión de Java que se va a configurar. Acepta una versión completa o parcial de Java. Consulte ejemplos de sintaxis admitida en el archivo README
+    java-version: # opcional
+    # La ruta al archivo `.java-version`. Vea ejemplos de sintaxis admitida en el archivo README
+    java-version-file: # opcional
+    # Distribución de Java. Consulte la lista de distribuciones compatibles en el archivo README
+    distribución:
+    # El tipo de paquete (jdk, jre, jdk+fx, jre+fx)
+    java-package: # opcional, el valor predeterminado es jdk
+    # La arquitectura del paquete (por defecto la arquitectura del ejecutor de acciones)
+    arquitectura: # opcional
+    # Ruta donde se encuentra el JDK comprimido
+    jdkFile: # opcional
+    # Establezca esta opción si desea que la acción busque la última versión disponible que cumpla con la especificación de la versión.
+    check-latest: # opcional
+    # ID del repositorio de administración de distribución en el archivo pom.xml. El valor predeterminado es `github`
+    server-id: # opcional, el valor predeterminado es github
+    # Nombre de la variable de entorno para el nombre de usuario para la autenticación en el repositorio Apache Maven. El valor predeterminado es $GITHUB_ACTOR
+    nombre-usuario-servidor: # opcional, el valor predeterminado es GITHUB_ACTOR
+    # Nombre de la variable de entorno para la contraseña o el token para la autenticación en el repositorio Apache Maven. El valor predeterminado es $GITHUB_TOKEN
+    contraseña del servidor: # opcional, el valor predeterminado es GITHUB_TOKEN
+    # Ruta donde se escribirá el archivo settings.xml. El valor predeterminado es ~/.m2.
+    ruta de configuración: # opcional
+    # Sobrescriba el archivo settings.xml si existe. El valor predeterminado es "true".
+    overwrite-settings: # opcional, el valor predeterminado es verdadero
+    # Clave privada GPG para importar. El valor predeterminado es una cadena vacía.
+    clave privada gpg: # opcional
+    # Nombre de la variable de entorno para la contraseña de la clave privada GPG. El valor predeterminado es $GPG_PASSPHRASE.
+    frase-contraseña-gpg: # opcional
+    # Nombre de la plataforma de compilación para almacenar en caché las dependencias. Puede ser "maven", "gradle" o "sbt".
+    caché: # opcional
+    # La ruta a un archivo de dependencia: pom.xml, build.gradle, build.sbt, etc. Esta opción se puede usar con la opción `cache`. Si se omite esta opción, la acción busca el archivo de dependencia en todo el repositorio. Esta opción admite comodines y una lista de nombres de archivos para almacenar en caché varias dependencias.
+    ruta de dependencia de caché: # opcional
+    # Solución alternativa para pasar el estado del trabajo al paso posterior al trabajo. Esta variable no está destinada a la configuración manual
+    job-status: # opcional, el valor predeterminado es ${{ job.status }}
+    # El token que se utiliza para autenticar al obtener manifiestos de versiones alojados en github.com, como para Microsoft Build de OpenJDK. Al ejecutar esta acción en github.com, el valor predeterminado es suficiente. Al ejecutar en GHES, puede pasar un token de acceso personal para github.com si experimenta una limitación de velocidad.
+    token: # opcional, el valor predeterminado es ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Nombre del ID de la cadena de herramientas de Maven si no se desea el nombre predeterminado "${distribution}_${java-version}". Consulte ejemplos de sintaxis admitida en el archivo de uso avanzado
+    mvn-toolchain-id: # opcional
+    # Nombre del proveedor de la cadena de herramientas de Maven si no se desea el nombre predeterminado "${distribution}". Consulte ejemplos de sintaxis admitida en el archivo de uso avanzado
+    mvn-toolchain-vendor: # opcional
+                  - nombre: Primera interacción
+  usos: acciones/primera-interacción@v1.3.0
+  con:
+    # Token para el repositorio. Se puede pasar mediante {{ secrets.GITHUB_TOKEN }}
+    token de recompra:
+    # Comentario para publicar sobre el primer problema de un individuo
+    mensaje de problema: # opcional
+    # Comentario para publicar en la primera solicitud de extracción de un individuo
+    pr-message: # opcional
+                      - nombre: Configurar el entorno Go
+  usos: acciones/setup-go@v5.0.2
+  con:
+    # La versión Go para descargar (si es necesario) y usar. Admite especificaciones y rangos de semver. Asegúrese de incluir esta opción entre comillas simples.
+    go-version: # opcional
+    # Ruta al archivo go.mod o go.work.
+    go-version-file: # opcional
+    # Establezca esta opción en verdadero si desea que la acción siempre busque la última versión disponible que satisfaga la especificación de la versión.
+    check-latest: # opcional
+    # Se utiliza para extraer distribuciones de Go de versiones de Go. Dado que hay un valor predeterminado, normalmente el usuario no lo proporciona. Al ejecutar esta acción en github.com, el valor predeterminado es suficiente. Al ejecutar en GHES, puede pasar un token de acceso personal para github.com si experimenta una limitación de velocidad.
+    token: # opcional, el valor predeterminado es ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Se utiliza para especificar si se necesita almacenamiento en caché. Establézcalo en verdadero si desea habilitar el almacenamiento en caché.
+    caché: # opcional, el valor predeterminado es verdadero
+    # Se utiliza para especificar la ruta a un archivo de dependencia - go.sum
+    ruta de dependencia de caché: # opcional
+    # Arquitectura de destino que Go utilizará. Ejemplos: x86, x64. Se utilizará la arquitectura del sistema de forma predeterminada.
+    arquitectura: # opcional
+                - nombre: Subir un artefacto de compilación
+  usos: acciones/upload-artifact@v4.3.4
+  con:
+    # Nombre del artefacto
+    nombre: # opcional, el valor predeterminado es artefacto
+    # Un archivo, directorio o patrón comodín que describe qué cargar
+    camino:
+    # El comportamiento deseado si no se encuentran archivos utilizando la ruta proporcionada.
+Opciones Disponibles:
+  advertir: emite una advertencia pero no hace que la acción falle
+  Error: La acción falla con un mensaje de error
+  ignorar: no muestra ninguna advertencia ni error, la acción no falla
+
+    if-no-files-found: # opcional, el valor predeterminado es advertir
+    # Duración después de la cual el artefacto caducará en días. 0 significa usar la retención predeterminada.
+Mínimo 1 día. Máximo 90 días, a menos que se modifique desde la página de configuración del repositorio.
+
+    días de retención: # opcional
+    # El nivel de compresión que se aplicará a Zlib en el archivo de artefactos. El valor puede variar de 0 a 9: - 0: Sin compresión - 1: Mejor velocidad - 6: Compresión predeterminada (igual que GNU Gzip) - 9: Mejor compresión Los niveles más altos darán como resultado una mejor compresión, pero tardarán más en completarse. Para archivos grandes que no se comprimen fácilmente, se recomienda un valor de 0 para cargas significativamente más rápidas.
+
+    nivel de compresión: # opcional, el valor predeterminado es 6
+    # Si es verdadero, se eliminará un artefacto con un nombre coincidente antes de que se cargue uno nuevo. Si es falso, la acción fallará si ya existe un artefacto con el nombre indicado. No falla si el artefacto no existe.
+
+    sobrescribir: # opcional, el valor predeterminado es falso
+                    
+          
